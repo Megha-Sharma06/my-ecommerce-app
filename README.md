@@ -4,7 +4,7 @@ A responsive E-Commerce web application built with React, Tailwind CSS, and Cont
 
 # Live Demo & Repository
 
-- Live Site: [Pending Deployment]
+- Live Site: https://my-ecommerce-app-dusky.vercel.app
 - Source Code: https://github.com/Megha-Sharma06/my-ecommerce-app
 
 # Key Features
