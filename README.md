@@ -1,16 +1,38 @@
-# React + Vite
+# E-Commerce Storefront
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive E-Commerce web application built with React, Tailwind CSS, and Context API. The application includes real-time API integration, client-side product filtering, global cart state management with persistent local storage, and an automated checkout price summary.
 
-Currently, two official plugins are available:
+# Live Demo & Repository
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Live Site: [Pending Deployment]
+- Source Code: https://github.com/Megha-Sharma06/my-ecommerce-app
 
-## React Compiler
+# Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Dynamic Data Fetching: Integrates FakeStore REST API asynchronously with loading and error state handling.
+- In-Memory Search & Filtering: Real-time search functionality paired with dynamic category filters generated using ES6 Set data structure.
+- Global Cart Management: Custom Context provider handling cart item additions, quantity adjustments, item removal, and subtotal/shipping price calculations.
+- Persistent State: Utilizes Lazy State Initialization with browser localStorage to maintain cart state across reloads.
+- Responsive UI: Built with a mobile-first design system using Tailwind CSS utility classes and conditional state styling.
 
-## Expanding the Oxlint configuration
+# Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- React.js (Hooks, Context API)
+- JavaScript (ES6+)
+- Tailwind CSS
+- FakeStore REST API
+- Browser LocalStorage API
+
+# Local Setup Instructions
+
+1. Clone the repository:
+   git clone https://github.com/Megha-Sharma06/my-ecommerce-app.git
+
+2. Navigate into the project directory:
+   cd my-ecommerce-app
+
+3. Install required dependencies:
+   npm install
+
+4. Start the local development server:
+   npm run dev
