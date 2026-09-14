@@ -15,13 +15,19 @@ const Shop = () => {
         
         const fetchProducts=async()=>{
             try{
-            const response=await fetch("https://fakestoreapi.com/products");
+            const response=await fetch("https://dummyjson.com/products");
 
             if(!response.ok){
                 throw new Error("Not able to Fetch Data");
             }
             const data= await response.json();
-            setProducts(data);
+
+            const products = data.products.map((item) => ({
+        ...item,
+        image: item.thumbnail,
+      }));
+      
+            setProducts(products);
         } 
         catch (err){
             setError(err.message);
