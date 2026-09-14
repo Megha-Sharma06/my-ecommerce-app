@@ -6,6 +6,8 @@ const Shop = () => {
     const[products, setProducts]=useState([]);
     const[loading,setLoading]=useState(true);
     const[error, setError]=useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedCategory, setSelectedCategory]=useState('all');
 
     const {addToCart}= useCart();
 
@@ -46,12 +48,55 @@ if(error){
 }
 
 
+const filteredProducts= products.filter((product)=>{
+    const matchesSearch= product.title
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase())
+
+    const matchesCategory=
+    selectedCategory==='all'|| product.category===selectedCategory
+
+    return matchesSearch && matchesCategory
+})
+
+const categories = ['all', ...new Set(products.map((p) => p.category))];
+
   return (
     <div className='max-w-7xl mx-auto p-6'>
         <h1 className='text-3xl font-bold text-gray-800 mb-8 border-b pb-4'>Explore Products</h1>
 
+{/*Input Box and Category Buttons */}
+    <div className='flex flex-col md:flex-row gap-4 mb-8 justify-between items-center'>
+      {/* Search Input Box */}
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full md:w-1/2 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
+      {/* Category Buttons */}
+      <div className="flex gap-2 overflow-x-auto w-full md:w-auto pb-2">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold capitalize whitespace-nowrap transition-colors ${
+              selectedCategory === category
+                ? 'bg-blue-600 text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+    </div>
+
+
 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-    {products.map((product)=>(
+    {filteredProducts.map((product)=>(
         <div key={product.id} 
         className='bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100'>
         <div>
